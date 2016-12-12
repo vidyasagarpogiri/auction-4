@@ -1,0 +1,5 @@
+<%=form_for bid, remote: true, authenticity_token: true do |f|%>
+  <%= f.text_field :price, value: bid.price, data: {textfield: "bid"} %>
+  <%= f.hidden_field :item_id, value: item.id %>
+  <%= f.submit "Place Bid", class: "btn btn-primary", data: {send: "bid"}%>
+<%end%>

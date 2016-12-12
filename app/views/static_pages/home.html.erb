@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1 class="text-center">Welcome to The Auction </h1>
+  <p class="text-center">Buy new and used products for cheap</p>
+</div>
+<div>
+    <div class="col-md-4">
+      <div>
+      <p> New?</p>
+       <%= link_to "Sign Up" , new_model_registration_path, class: "btn btn-primary" %>
+      </div>
+      <div>
+        <p> Already have an account? </p>
+        <%= link_to "Sign In", new_model_session_path  , class: "btn btn-primary" %>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <h3> Check Out our newest Items </h3>
+      <% @items.each do | item |  %>
+      <h3> <%= link_to item.name, auction_path(item) %></h3>
+      <p> <%= item.description %> </p>
+      <% end %>
+    </div>
+    <div class="col-md-4">
+      <h3> Sell your items <%= link_to "here!", new_item_path %> </h3>
+      <p> We let you put your own items up for auction. Sell them for really money. Each Auction will last 6 hours.
+    </div>
+</div>

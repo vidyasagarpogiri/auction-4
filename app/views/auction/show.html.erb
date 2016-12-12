@@ -1,0 +1,23 @@
+<h1><%= @item.name %></h1>
+<p> <%= @item.description %> </p>
+<h4>Time left: </h4>
+<p class="time" >  <%= Time.at(@item.expire_date - Time.now).strftime('%H:%M:%S') %></p>
+<h3 id="winner"> </h3>
+<h5 id="winning-bid"> </h5>
+<div class="panel-body" >
+  <p id="errors"> </p>
+</div>
+
+<%= render partial: "bid/bid_form", locals: {bid: @bid, item: @item} %>
+<% if @item.bids.any? %>
+  <div class="panel-body" id="bids">
+    <%= render partial: "bid/bid", collection: @item.bids.reverse %>
+  </end>
+  <%else%>
+  <div class="panel-body hidden" id="bids">
+  </div>
+<% end %>
+<script>
+
+
+</script>

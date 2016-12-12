@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Items</h1>
+
+<%= link_to 'New Item', new_item_path %>
+<div class="container">
+    <% @items.each do |item| %>
+      <div class="col-md-4 card">
+        <div class="inner-card">
+        <h3><%= item.name %></h3>
+        <p><%= item.description %></p>
+        <%= link_to "View", auction_path(item), class: "btn btn-primary" %>
+      </div>
+      </div>
+    <% end %>
+</div>
+<br>
